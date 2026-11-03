@@ -1,0 +1,17 @@
+{
+  "name": "run-length-encoding-utils",
+  "version": "0.1.0",
+  "description": "Encodes repeated character runs as one character plus a count, and decodes them back.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
