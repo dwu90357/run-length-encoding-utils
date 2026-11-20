@@ -24,3 +24,10 @@ Run-length encoding is simple enough to write inline, but the edge cases around 
 - `encode('')` and `decode('')` both return `''`.
 - `decode` rejects counts with leading zeros (e.g. `'a01'`) and counts of zero (`'a0'`).
 - Characters in the input are treated as single UTF-16 code units. Astral-plane characters (emoji, some CJK) are two code units and will be encoded as two runs. This is a known limitation of the simple format.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
